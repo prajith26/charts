@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.css'],
+  imports: [RouterOutlet],
 })
-export class AppComponent {
-  title = 'charts';
-}
+export class AppComponent {}

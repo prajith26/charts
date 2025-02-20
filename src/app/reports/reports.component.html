@@ -1,0 +1,39 @@
+<!-- =========================== -->
+
+<div class="report-container d-flex flex-column h-100">
+  <div class="container mt-2 mb-2">
+    <div class="row">
+      <h3>Reports</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <label>Chart Type</label>
+        <mat-select
+          class="form-control border dropArrow"
+          name="selectedChartType"
+          id="selectedChartType"
+          [formControl]="chartTypeControl"
+          [disableOptionCentering]="true"
+          panelClass="dropPosition"
+        >
+          <mat-option *ngFor="let chart of chartTypes" [value]="chart">
+            {{ chart.viewValue }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row charts flex-grow-1 ms-5">
+    <div class="chart" style="width: 50%">
+      <canvas
+        baseChart
+        width="800"
+        height="400"
+        [data]="chartData"
+        [type]="chartTypeControl.value?.ChartType || 'line'"
+        [options]="chartOptions()"
+      ></canvas>
+    </div>
+  </div>
+</div>
